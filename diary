@@ -1,0 +1,33 @@
+5.模板继承
+以下代码省略HTML主体结构，只下body中的部分
+先写一个base.html
+
+
+
+<div>
+    这是头部
+</div>
+{% block content %}
+{% endblock %}
+<div>
+    这是尾部
+</div>12345678
+
+然后在one_base.html中用extends 语法继承base.html页面，
+然后再重写content中的内容
+
+
+
+{% extends "base.html"%}
+{% block content %}
+    <h2>这是第一页</h2>
+{% endblock %}1234
+
+
+
+@app.route('/one')
+def one_base():
+    return render_template("one_base.html")
+
+
+
